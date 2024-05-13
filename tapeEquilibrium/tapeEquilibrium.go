@@ -1,28 +1,31 @@
 package tapeequilibrium
 
-import "math"
-
-func Solution(A []int) int{
+func Solution(A []int) int {
 	if len(A) <= 1 {
 		return 1
 	}
-	minDifference := math.MaxInt 
+	total := 0
+	sumList := make([]int, len(A))
+	for i, item := range A {
+		total += item
+		if i == 0 {
+			sumList[i] = item
+		} else {
+			sumList[i] = sumList[i - 1] + item
+		}
+	}
+	minDifference := 2147483647
+	var sumArray0, sumArray1 int
 	for p := 1; p < len(A); p++ {
-		sumArray0, sumArray1 := sum(A[:p]), sum(A[p:])
-		if diff := diff(sumArray0,sumArray1); diff < minDifference {
+		sumArray0 = sumList[p - 1]
+		sumArray1 = total - sumArray0
+		if diff := diff(sumArray0, sumArray1); diff < minDifference {
 			minDifference = diff
 		}
 	}
 	return minDifference
 }
 
-func sum(arr []int) int {
-	sum := 0
-	for _, val := range arr {
-		sum += val
-	}
-	return sum
-}
 func diff(val0, val1 int) int {
 	if val0 >= val1 {
 		return val0 - val1

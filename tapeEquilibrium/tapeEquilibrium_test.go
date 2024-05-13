@@ -21,6 +21,8 @@ func TestSolution(t *testing.T) {
 // items can be nagative.
 // P will be >=1 and < len-1 or len ?
 
+// [3,1,2,4,3] -> 13
+// [3, 4, 6, 10, 13]
 // p=1 -> [3][1,2,4,3] -> 3 - 10
 // p=2 -> [3,1]{2,4,3} => 4 - 9
 // p=3 -> [3,1,2][4,3] => 6 - 7 
