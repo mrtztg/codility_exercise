@@ -1,0 +1,1 @@
+This repo is solutions for Codility challenges in Go language.
