@@ -2,7 +2,7 @@ package permmissingelem
 
 func Solution(A []int) int {
 	if len(A) < 2 {
-		return 0
+		return 1
 	}
 	sortedArr := make([]bool, len(A) + 2)
 	for _, item := range A {
